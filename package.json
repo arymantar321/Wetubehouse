@@ -1,0 +1,10 @@
+{
+  "name": "wetubehouse",
+  "version": "1.0.0",
+  "description": "wetube project house ver.",
+  "main": "index.js",
+  "author": "starter",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
