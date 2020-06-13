@@ -3,7 +3,7 @@
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": "entry",
+        "useBuiltIns": "entry", // "useBuiltIns": "usage" 로 바꾸는게 도움이 될지도 모름. 원래는 usage 부분이 entry 였음
         "corejs": 3
       }
     ]

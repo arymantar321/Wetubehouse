@@ -2,6 +2,9 @@ node_modules
 
 package-lock.json
 
+uploads
+
+static
 
 # Created by https://www.gitignore.io/api/node
 # Edit at https://www.gitignore.io/?templates=node
