@@ -76,14 +76,17 @@ export const getEditVideo = async (req, res) => {
   } = req;
   try {
     const video = await Video.findById(id);
-    if (video.creator !== req.user.id) {
+    if (video.creator != req.user.id) {
+      // 왼쪽은 오브젝트, 오른쪽은 스트링.
+      // 다만, 둘다 따옴표 없는 스트링이라서, 같게 만드려면 둘 다에게 JSON.stringify를 적용해서 둘 다 따옴표 붙은 스트링으로 만들거나
+      // 오른쪽, 혹은 둘 다에게 JSON.parse를 적용해서 둘 다 Object로 만들어야 하는데...parse는 왜인지 잘 적용이 안된다...명령이 반쯤 무시됨...
+      // 같게 만드는 또 하나의 방법은 데이터 타입을 신경쓰지 않게 하기 위해서, !== 를 != 로 바꾸는 것이다.
+      // 이번에는 후자의 방법을 적용.
       throw Error();
     } else {
       res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
     }
   } catch (error) {
-    console.log("에러났음");
-    console.log(req.user.id);
     res.redirect(routes.home);
   }
 };
@@ -109,7 +112,8 @@ export const deleteVideo = async (req, res) => {
   } = req;
   try {
     const video = await Video.findById(id);
-    if (video.creator !== req.user.id) {
+    if (video.creator != req.user.id) {
+      // 여기서도 getEditVideo 에 있었던 것과 같은 문제발생. 같은 문서의 위쪽, 해당 이름의 함수 내에 있는 주석을 참조.
       throw Error();
     } else {
       await Video.findOneAndRemove({ _id: id });
