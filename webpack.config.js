@@ -6,8 +6,11 @@ const MODE = process.env.WEBPACK_ENV;
 const ENTRY_FILE = path.resolve(__dirname, "assets", "js", "main.js");
 const OUTPUT_DIR = path.join(__dirname, "static");
 
+const stable = require("core-js/stable");
+const runtime = require("regenerator-runtime/runtime");
+
 const config = {
-  entry: ["core-js/stable","regenerator-runtime/runtime", ENTRY_FILE],
+  entry: [stable, runtime, ENTRY_FILE],
   mode: MODE.replace(/\s/g, ""),
   module: {
     rules: [
@@ -15,36 +18,36 @@ const config = {
         test: /\.(js)$/,
         use: [
           {
-            loader: "babel-loader"
-          }
-        ]
+            loader: "babel-loader",
+          },
+        ],
       },
       {
         test: /\.(scss)$/,
         use: ExtractCSS.extract([
           {
-            loader: "css-loader"
+            loader: "css-loader",
           },
           {
             loader: "postcss-loader",
             options: {
               plugins() {
                 return [autoprefixer({ Browserslist: "cover 99.5%" })];
-              }
-            }
+              },
+            },
           },
           {
-            loader: "sass-loader"
-          }
-        ])
-      }
-    ]
+            loader: "sass-loader",
+          },
+        ]),
+      },
+    ],
   },
   output: {
     path: OUTPUT_DIR,
-    filename: "[name].js"
+    filename: "[name].js",
   },
-  plugins: [new ExtractCSS("styles.css")]
+  plugins: [new ExtractCSS("styles.css")],
 };
 
 module.exports = config;
