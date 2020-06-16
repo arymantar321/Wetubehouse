@@ -1,6 +1,7 @@
 import routes from "../routes";
 import Video from "../models/Video";
 import Comment from "../models/Comment";
+import User from "../models/User";
 
 // Home
 
@@ -160,6 +161,27 @@ export const postAddComment = async (req, res) => {
     video.save();
   } catch (error) {
     res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
+// delete Comment
+
+export const postRemoveComment = async (req, res) => {
+  const {
+    body: { comment },
+  } = req;
+  try {
+    const commentconst = await Comment.findById(comment);
+    const commentconstid = await commentconst._id;
+    if (commentconst.creator != req.user.id) {
+      throw Error();
+    } else {
+      await Comment.findOneAndRemove({ _id: commentconstid });
+    }
+  } catch (error) {
+    console.log("catch에러");
   } finally {
     res.end();
   }
