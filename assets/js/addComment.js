@@ -1,4 +1,5 @@
 import axios from "axios";
+import Comment from "../../models/Comment";
 
 const addCommentForm = document.getElementById("jsAddComment");
 const commentList = document.getElementById("jsCommentList");
@@ -16,7 +17,6 @@ const addComment = async (comment) => {
 
   span.innerHTML = comment;
   li.classList.add("commentList");
-
   // li.id = `${comment.id}`; // <- 지금 이것만 제대로 작동 안 함...
   // comment.id를 불러올 수 없는듯 당연히 못 불러오겠지 여기서 comment는 내가 입력한 내용인데...
   // 지정된 comment.id... 숫자랑 영어랑 섞인 이상한 걸 불러오려면 뭘 해야하지...? 임포트?
@@ -31,7 +31,15 @@ const addComment = async (comment) => {
 
   // increase view number
   increaseNumber();
-  location.reload(true); // <-이건 그거다...페이지 전체 새로고침
+  console.log(comment);
+  console.log("addComment");
+  //idTest();
+  //location.reload(true); // <-이건 그거다...페이지 전체 새로고침
+};
+
+const idTest = async (req, res) => {
+  const cc = await Comment.findOne({ text: comment });
+  console.log(cc);
 };
 
 const sendComment = async (comment) => {

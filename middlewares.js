@@ -1,5 +1,6 @@
 import multer from "multer";
 import routes from "./routes";
+import Comment from "./models/Comment";
 
 const multerVideo = multer({ dest: "uploads/videos/" });
 const multerAvatar = multer({ dest: "uploads/avatars/" });
