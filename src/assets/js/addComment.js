@@ -1,5 +1,4 @@
 import axios from "axios";
-import Comment from "../../models/Comment";
 
 const addCommentForm = document.getElementById("jsAddComment");
 const commentList = document.getElementById("jsCommentList");
@@ -31,15 +30,7 @@ const addComment = async (comment) => {
 
   // increase view number
   increaseNumber();
-  console.log(comment);
-  console.log("addComment");
-  //idTest();
   //location.reload(true); // <-이건 그거다...페이지 전체 새로고침
-};
-
-const idTest = async (req, res) => {
-  const cc = await Comment.findOne({ text: comment });
-  console.log(cc);
 };
 
 const sendComment = async (comment) => {
