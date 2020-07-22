@@ -35,9 +35,12 @@ const addComment = async (comment) => {
 };
 
 const testF = async () => {
-  const videoId = window.location.href.split("/videos/")[1];
-  const response = await axios({
-    url: `/videos/${videoId}`,
+  await axios({
+    url: `/static/styles.css`,
+    method: "GET",
+  });
+  await axios({
+    url: `/static/main.js`,
     method: "GET",
   });
 };
