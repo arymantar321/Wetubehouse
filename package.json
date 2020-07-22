@@ -5,6 +5,7 @@
   "main": "init.js",
   "author": "starter",
   "dependencies": {
+    "@babel/cli": "^7.10.5",
     "@babel/node": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "autoprefixer": "^9.8.5",
@@ -54,7 +55,6 @@
     "prestart": "npm run build"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
     "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
