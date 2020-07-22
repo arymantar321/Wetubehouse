@@ -37,7 +37,7 @@ const addComment = async (comment) => {
 const testF = async () => {
   const videoId = window.location.href.split("/videos/")[1];
   const response = await axios({
-    url: `/api/${videoId}/comment`,
+    url: `/videos/${videoId}`,
     method: "GET",
   });
 };
