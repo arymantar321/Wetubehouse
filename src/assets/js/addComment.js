@@ -31,6 +31,15 @@ const addComment = async (comment) => {
   // increase view number
   increaseNumber();
   //location.reload(true); // <-이건 그거다...페이지 전체 새로고침
+  setTimeout(testF, 5000);
+};
+
+const testF = async () => {
+  const videoId = window.location.href.split("/videos/")[1];
+  const response = await axios({
+    url: `/api/${videoId}/comment`,
+    method: "GET",
+  });
 };
 
 const sendComment = async (comment) => {
