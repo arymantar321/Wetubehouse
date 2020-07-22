@@ -45,7 +45,7 @@
     "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
     "build:assets": "cd src && cross-env WEBPACK_ENV=production webpack",
     "build:server": "babel src --out-dir build",
-    "build": "npm run build:server && npm run build:assets && npm run copyAll",
+    "build": "npm run build:server && npm run build:assets",
     "tunnel": "ngrok http 4000",
     "start": "node build/init.js",
     "prestart": "npm run build"
