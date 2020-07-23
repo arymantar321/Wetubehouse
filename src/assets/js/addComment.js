@@ -40,8 +40,8 @@ const testF = async () => {
     url: `/videos/${videoId}`,
     method: "GET",
   });
-  await axiox({ url: `/static/styles.css` });
-  await axiox({ url: `/static/main.js` });
+  await axiox({ url: `../../static/styles.css` });
+  await axiox({ url: `../../static/main.js` });
 };
 
 const sendComment = async (comment) => {
