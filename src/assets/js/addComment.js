@@ -35,12 +35,9 @@ const addComment = async (comment) => {
 };
 
 const testF = async () => {
-  const videoId = window.location.href.split("/videos/")[1];
-  const response = await axios.patch({
-    url: `/videos/${videoId}`,
+  await axios.patch({
+    url: window.location.href,
   });
-  console.log(videoId);
-  console.log(response);
 };
 
 /*
