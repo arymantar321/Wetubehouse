@@ -151,31 +151,6 @@ export const postAddComment = async (req, res) => {
     user,
   } = req;
   try {
-    const video = await Video.findById(id)
-      .populate("creator")
-      .populate("comments");
-    const newComment = await Comment.create({
-      text: comment,
-      creator: user.id,
-    });
-    video.comments.push(newComment.id);
-    video.save();
-    res.render("videoDetail", { pageTitle: video.title, video });
-  } catch (error) {
-    res.status(400);
-  } finally {
-    res.end();
-  }
-};
-
-/*
-export const postAddComment = async (req, res) => {
-  const {
-    params: { id },
-    body: { comment },
-    user,
-  } = req;
-  try {
     const video = await Video.findById(id);
     const newComment = await Comment.create({
       text: comment,
@@ -183,13 +158,13 @@ export const postAddComment = async (req, res) => {
     });
     video.comments.push(newComment.id);
     video.save();
+    res.redirect(routes.videoDetail(id));
   } catch (error) {
     res.status(400);
   } finally {
     res.end();
   }
 };
-*/
 
 // delete Comment
 
