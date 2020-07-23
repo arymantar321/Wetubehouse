@@ -158,7 +158,8 @@ export const postAddComment = async (req, res) => {
     });
     video.comments.push(newComment.id);
     video.save();
-    console.log(id);
+    console.log(newComment.text);
+    console.log(newComment.id);
   } catch (error) {
     res.status(400);
   } finally {
