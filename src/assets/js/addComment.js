@@ -43,7 +43,7 @@ const testF = async () => {
     .then(function (response) {
       return response;
     })
-    .then((data) => console.log(data));
+    .then((data) => console.log(data.data));
 };
 
 const sendComment = async (comment) => {
