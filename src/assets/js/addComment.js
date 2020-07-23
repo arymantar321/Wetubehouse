@@ -31,17 +31,6 @@ const addComment = async (comment) => {
   // increase view number
   increaseNumber();
   //location.reload(true); // <-이건 그거다...페이지 전체 새로고침
-  setTimeout(testF, 5000);
-};
-
-const testF = async () => {
-  const videoId = window.location.href.split("/videos/")[1];
-  await axios({
-    url: `/videos/${videoId}`,
-    method: "GET",
-  });
-  await axiox({ url: `../../static/styles.css` });
-  await axiox({ url: `../../static/main.js` });
 };
 
 const sendComment = async (comment) => {
