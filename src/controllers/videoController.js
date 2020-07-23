@@ -158,7 +158,6 @@ export const postAddComment = async (req, res) => {
     });
     video.comments.push(newComment.id);
     video.save();
-    res.redirect(routes.videoDetail(id));
   } catch (error) {
     res.status(400);
   } finally {
