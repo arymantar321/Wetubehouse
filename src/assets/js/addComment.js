@@ -36,23 +36,17 @@ const addComment = async (comment) => {
 
 const testF = async () => {
   const videoId = window.location.href.split("/videos/")[1];
-  const reOne = await axios({
+  await axios({
     url: `/videos/${videoId}`,
     method: "GET",
-  });
-  console.log(reOne);
-
-  const reTwo = await axios({
-    url: `/videos/${videoId}`,
-    method: "POST",
-  });
-  console.log(reTwo);
-
-  const reThree = await axios({
+  }).then(function (response) {
+    return response;
+  })
+  .then((data) => await axios({
     url: `/videos/${videoId}`,
     method: "PATCH",
-  });
-  console.log(reThree);
+    data: data
+  }));
 };
 
 /*
