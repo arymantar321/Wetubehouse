@@ -38,12 +38,12 @@ const testF = async () => {
   const videoId = window.location.href.split("/videos/")[1];
   await axios({
     url: `/videos/${videoId}`,
-    method: "POST",
+    method: "GET",
   })
     .then(function (response) {
       return response;
     })
-    .then((data) => console.log(data.data));
+    .then((data) => console.log(data));
 };
 
 /*
