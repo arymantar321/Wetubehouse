@@ -36,12 +36,14 @@ const addComment = async (comment) => {
 
 const testF = async () => {
   const videoId = window.location.href.split("/videos/")[1];
-  const reOne = await axios.get({
+  const reOne = await axios({
     url: `/videos/${videoId}`,
+    method: "GET",
   });
   console.log(reOne);
-  const reTwo = await axios.patch({
+  const reTwo = await axios({
     url: `/videos/${videoId}`,
+    method: "PATCH",
   });
   console.log(reTwo);
 };
