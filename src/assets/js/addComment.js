@@ -34,15 +34,15 @@ const addComment = async (comment) => {
   setTimeout(testF, 5000);
 };
 
-const testF = () => {
+const testF = async () => {
   const videoId = window.location.href.split("/videos/")[1];
   await axios({
     url: `/videos/${videoId}`,
     method: "GET",
   });
-  await axiox({url: `/static/styles.css`});
-  await axiox({url: `/static/main.js`});
-}
+  await axiox({ url: `/static/styles.css` });
+  await axiox({ url: `/static/main.js` });
+};
 
 const sendComment = async (comment) => {
   const videoId = window.location.href.split("/videos/")[1];
