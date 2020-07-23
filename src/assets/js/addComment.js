@@ -41,11 +41,18 @@ const testF = async () => {
     method: "GET",
   });
   console.log(reOne);
+
   const reTwo = await axios({
+    url: `/videos/${videoId}`,
+    method: "POST",
+  });
+  console.log(reTwo);
+
+  const reThree = await axios({
     url: `/videos/${videoId}`,
     method: "PATCH",
   });
-  console.log(reTwo);
+  console.log(reThree);
 };
 
 /*
