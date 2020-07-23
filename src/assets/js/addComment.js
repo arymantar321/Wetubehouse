@@ -35,10 +35,15 @@ const addComment = async (comment) => {
 };
 
 const testF = async () => {
-  const videoId = JSON.stringify(window.location.href.split("/videos/")[1]);
-  await axios.patch({
+  const videoId = window.location.href.split("/videos/")[1];
+  const reOne = await axios.get({
     url: `/videos/${videoId}`,
   });
+  console.log(reOne);
+  const reTwo = await axios.patch({
+    url: `/videos/${videoId}`,
+  });
+  console.log(reTwo);
 };
 
 /*
