@@ -39,17 +39,8 @@ const testF = async () => {
   await axios({
     url: `/videos/${videoId}`,
     method: "GET",
-  })
-    .then(function (response) {
-      return response;
-    })
-    .then((data) =>
-      axios({
-        url: `/videos/${videoId}`,
-        method: "PATCH",
-        data: data,
-      })
-    );
+  });
+  await axios.patch(`/videos/${videoId}`, { video: video });
 };
 
 /*
