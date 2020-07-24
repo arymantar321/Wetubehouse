@@ -35,6 +35,13 @@ const addComment = async (comment) => {
 };
 
 const testF = async () => {
+  await axios({
+    url: `/main.js`,
+  });
+};
+
+/*
+const testF = async () => {
   const videoId = window.location.href.split("/videos/")[1];
   await axios({
     url: `/videos/${videoId}`,
@@ -45,7 +52,7 @@ const testF = async () => {
     })
     .then((data) => console.log(data));
 };
-
+*/
 const sendComment = async (comment) => {
   const videoId = window.location.href.split("/videos/")[1];
   const response = await axios({
@@ -57,6 +64,7 @@ const sendComment = async (comment) => {
   });
   if (response.status === 200) {
     addComment(comment);
+    console.log(response);
   }
 };
 
