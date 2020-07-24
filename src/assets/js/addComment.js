@@ -31,13 +31,6 @@ const addComment = async (comment) => {
   // increase view number
   increaseNumber();
   //location.reload(true); // <-이건 그거다...페이지 전체 새로고침
-  testF();
-};
-
-const testF = async () => {
-  await axios({
-    url: `/main.js`,
-  });
 };
 
 /*
