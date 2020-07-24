@@ -67,10 +67,12 @@
             right: 1px;
             box-shadow: none;
             &:hover {
-              color: #ff7055;
+              color: transparent;
+              text-shadow: 0 0 0 #ff7055;
             }
             &:active {
-              color: #7d1424;
+              color: transparent;
+              text-shadow: 0 0 0 #7d1424;
             }
           }
         }
