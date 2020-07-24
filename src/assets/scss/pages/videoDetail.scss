@@ -64,10 +64,10 @@
           position: relative;
           right: 1px;
           box-shadow: none;
-          &:hover {
+          &::hover {
             color: #ff7055;
           }
-          &:active {
+          &::active {
             color: #7d1424;
           }
         }
