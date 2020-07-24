@@ -56,17 +56,22 @@
         &:not(:last-child) {
           margin-bottom: 15px;
         }
+        .deleteButton {
+          width: 5%;
+          height: 100%;
+          border: none;
+          background-color: #3498db;
+          position: relative;
+          right: 1px;
+          box-shadow: none;
+        }
+        &:hover {
+          color: #ff7055;
+        }
+        &:active {
+          color: #7d1424;
+        }
       }
     }
   }
-}
-
-.deleteButton {
-  width: 5%;
-  height: 100%;
-  border: none;
-  background-color: none;
-  position: relative;
-  right: 1px;
-  box-shadow: none;
 }
