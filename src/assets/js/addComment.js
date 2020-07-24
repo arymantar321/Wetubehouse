@@ -8,7 +8,7 @@ const increaseNumber = () => {
   commentNumber.innerHTML = parseInt(commentNumber.innerHTML, 10) + 1;
 };
 
-const addComment = async (comment) => {
+const addComment = async (comment, id) => {
   const li = document.createElement("li");
   const span = document.createElement("span");
   commentList.prepend(li);
@@ -16,9 +16,7 @@ const addComment = async (comment) => {
 
   span.innerHTML = comment;
   li.classList.add("commentList");
-  // li.id = `${comment.id}`; // <- 지금 이것만 제대로 작동 안 함...
-  // comment.id를 불러올 수 없는듯 당연히 못 불러오겠지 여기서 comment는 내가 입력한 내용인데...
-  // 지정된 comment.id... 숫자랑 영어랑 섞인 이상한 걸 불러오려면 뭘 해야하지...? 임포트?
+  li.id = id;
   span.classList.add("commentSpan");
 
   // button
@@ -33,19 +31,6 @@ const addComment = async (comment) => {
   //location.reload(true); // <-이건 그거다...페이지 전체 새로고침
 };
 
-/*
-const testF = async () => {
-  const videoId = window.location.href.split("/videos/")[1];
-  await axios({
-    url: `/videos/${videoId}`,
-    method: "GET",
-  })
-    .then(function (response) {
-      return response;
-    })
-    .then((data) => console.log(data));
-};
-*/
 const sendComment = async (comment) => {
   const videoId = window.location.href.split("/videos/")[1];
   const response = await axios({
@@ -56,15 +41,18 @@ const sendComment = async (comment) => {
     },
   });
   if (response.status === 200) {
-    addComment(comment);
-    console.log(response);
+    let comment = response.data[0];
+    let id = response.data[1];
+    addComment(comment, id);
+    console.log(response.data[0]);
+    console.log(response.data[1]);
   }
 };
 
 const handleSubmit = (event) => {
   event.preventDefault();
   const commentInput = addCommentForm.querySelector("input");
-  const comment = commentInput.value;
+  let comment = commentInput.value;
   sendComment(comment);
   commentInput.value = "";
 };
