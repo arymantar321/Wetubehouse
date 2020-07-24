@@ -158,8 +158,7 @@ export const postAddComment = async (req, res) => {
     });
     video.comments.push(newComment.id);
     video.save();
-    res.config.data = [comment, id];
-    res.status(200);
+    res.send(200, [comment, id]);
   } catch (error) {
     res.status(400);
   } finally {
