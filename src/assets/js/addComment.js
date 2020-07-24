@@ -24,7 +24,7 @@ const addComment = async (comment, id) => {
   const button = document.createElement("button");
   span.appendChild(button);
   button.classList.add("deleteButton");
-  button.innerHTML = "❌";
+  button.innerHTML = "X";
 
   // increase view number
   increaseNumber();
