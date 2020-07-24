@@ -28,7 +28,6 @@ const addComment = async (comment, id) => {
 
   // increase view number
   increaseNumber();
-  //location.reload(true); // <-이건 그거다...페이지 전체 새로고침
 };
 
 const sendComment = async (comment) => {
@@ -44,8 +43,6 @@ const sendComment = async (comment) => {
     let comment = response.data[0];
     let id = response.data[1];
     addComment(comment, id);
-    console.log(response.data[0]);
-    console.log(response.data[1]);
   }
 };
 
